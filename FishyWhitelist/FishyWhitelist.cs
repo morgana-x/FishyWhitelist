@@ -13,40 +13,11 @@ namespace FishyWhitelist
                 return;
             if (FishyWhitelistConfig.GetWhiteList().Contains(player.SteamID.ToString()))
                 return;
-            try
-            {
-                SendPacketToPlayer(new MessagePacket(config.KickMessage, config.KickMessageColor), player.SteamID);
-                KickPlayer(player);
-                Log($"Kicked player {player.Name} {player.SteamID} for not being on whitelist!");
-            }
-            catch (Exception e)
-            {
-                LogError(e.ToString());
-            }
+            WhiteListKick(player);
         }
         public override void OnInit()
         {
             refreshConfig();
-        }
-
-        private void refreshConfig()
-        {
-            FishyWhitelistConfig.GetWhiteList(); // Generate default whitelist if none exists;
-            Log("Refreshing config...");
-            string configPath = Path.Combine(Environment.CurrentDirectory, "whitelistConfig.toml");
-            if (!File.Exists(configPath))
-            {
-                File.WriteAllText(configPath, Tomlyn.Toml.FromModel(config));
-            }
-            try
-            {
-                config = Tomlyn.Toml.ToModel<FishyWhitelistConfig>(File.ReadAllText(configPath));
-            }
-            catch (Exception e)
-            {
-                LogError("couldn't read TOML!" + e.ToString());
-            }
-            LogSuccess("Refreshed config!");
         }
 
         public static void Log(string message, ConsoleColor color = ConsoleColor.Gray)
@@ -66,6 +37,40 @@ namespace FishyWhitelist
         {
             Log(message, ConsoleColor.Green);
         }
-        
+        private void refreshConfig()
+        {
+            FishyWhitelistConfig.GetWhiteList(); // Generate default whitelist if none exists;
+
+            string configPath = Path.Combine(Environment.CurrentDirectory, "whitelistConfig.toml");
+
+            if (!File.Exists(configPath))
+                File.WriteAllText(configPath, Tomlyn.Toml.FromModel(config));
+
+            try
+            {
+                config = Tomlyn.Toml.ToModel<FishyWhitelistConfig>(File.ReadAllText(configPath));
+            }
+            catch (Exception e)
+            {
+                LogError("couldn't read config TOML!\n" + e.ToString());
+            }
+
+            LogSuccess("Refreshed config!");
+        }
+
+        private void WhiteListKick(Player player)
+        {
+            try
+            {
+                SendPacketToPlayer(new MessagePacket(config.KickMessage, config.KickMessageColor), player.SteamID);
+                KickPlayer(player);
+            }
+            catch (Exception e)
+            {
+                LogError(e.ToString());
+                return;
+            }
+            Log($"Kicked player {player.Name} {player.SteamID} for not being on whitelist!");
+        }
     }
 }
