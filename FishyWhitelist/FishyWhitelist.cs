@@ -11,7 +11,7 @@ namespace FishyWhitelist
         {
             if (!config.WhitelistEnabled)
                 return;
-            if (!FishyWhitelistConfig.GetWhiteList().Contains(player.SteamID.ToString()))
+            if (FishyWhitelistConfig.GetWhiteList().Contains(player.SteamID.ToString()))
                 return;
             try
             {
@@ -66,5 +66,6 @@ namespace FishyWhitelist
         {
             Log(message, ConsoleColor.Green);
         }
+        
     }
 }
