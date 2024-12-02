@@ -7,8 +7,9 @@ Generates `whitelistConfig.toml` and `whitelist.txt`
 
 whitelistConfig.toml is where you configure whether the plugin is enabled, and kick message etc
 
-whitelist.txt is where all the whitelisted steamId64s are EG:
+whitelist.txt is where all the whitelisted steamId64s are, seperated by new lines
 
+Example:
 ```
 76561197960287930
 76561197960287930
