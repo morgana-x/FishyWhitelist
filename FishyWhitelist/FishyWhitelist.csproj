@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>..\..\..\Downloads\win-x64\Facepunch.Steamworks.Win64.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Fishy">
+      <HintPath>..\..\..\Downloads\win-x64\Fishy.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Tomlyn">
+      <HintPath>..\..\..\Downloads\win-x64\Tomlyn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
