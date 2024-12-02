@@ -15,3 +15,5 @@ Example:
 76561197960287930
 ```
 (These steamids are just duplicates of gabe newell's steam account's as example)
+
+![Screenshot (5769)](https://github.com/user-attachments/assets/adb3a724-beb8-48f1-9ea4-0bc26f56b3c1)
