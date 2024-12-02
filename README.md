@@ -1,5 +1,5 @@
 # FishyWhitelist
-A plugin for [Fishy](https://github.com/ncrypted-dev/Fishy), a Community-Made Dedicated Server program for the game [Webfishing](https://store.steampowered.com/app/3146520/WEBFISHING/)
+A plugin for [Fishy](https://github.com/ncrypted-dev/Fishy), a Community-Made Dedicated Server program for the game WebFishing https://store.steampowered.com/app/3146520/WEBFISHING
 
 Allows you to whitelist SteamIds that join your server
 
